@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 import { TRPCProvider } from "@/providers/trpc";
 import { useState } from "react";
 import Login from "./pages/Login";
@@ -28,11 +28,13 @@ function AppLayout() {
 export default function App() {
   return (
     <TRPCProvider>
-      <Routes>
-        <Route path="/" element={<AppLayout />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Router>
+        <Routes>
+          <Route path="/" element={<AppLayout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
     </TRPCProvider>
   );
 }
